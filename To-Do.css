@@ -23,7 +23,7 @@
   width: 60px;
   height: 30px;
   border-radius: 30px;
-  background-color: aquamarine;
+  background-color: rgb(127, 155, 255);
   cursor: pointer;
 }
 .userAlert {
@@ -83,3 +83,6 @@
 .userAlert.show {
   display: block;
 }
+/* h1{
+  margin: ;
+} */

@@ -7,82 +7,141 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+/* Input & Button Section */
+.insert {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
 }
 
 #taskInput {
-  font-family: var(--body-font);
-  width: 31vw;
-  margin: 50px 0 70px 30vw;
-  height: 30px;
-  border-style: double;
-  font-size:large;
-  font-weight: 900;
+  flex: 1;
+  min-width: 250px;
+  height: 40px;
+  padding: 5px;
+  border: 2px solid #333;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .addBtn {
-  width: 60px;
-  height: 30px;
-  border-radius: 30px;
+  width: 70px;
+  height: 40px;
+  border-radius: 5px;
   background-color: rgb(127, 155, 255);
   cursor: pointer;
+  font-weight: bold;
+  border: none;
 }
+
+/* Alert Message */
 .userAlert {
-  margin: -40px 0 0 30vw;
-  padding: 5px 0px 3px 10px;
-  width: 30vw;
-  height: 30px;
-  color: black;
+  display: none;
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  text-align: center;
   color: red;
   background-color: bisque;
-  border: solid black 2px;
-  display: none;
+  border: 2px solid black;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.userAlert.show {
+  display: block;
+}
+
+/* Task List */
+#taskList {
+  width: 100%;
+  max-width: 500px;
+  list-style: none;
+  padding: 0;
 }
 
 .task {
-  width: 30vw;
-  margin: 8px 0 0 30vw;
-  height: 30px;
-  display: block;
-  border-radius: var( --main-bg-rd);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: var(--main-bg-rd);
   background-color: bisque;
   border: 1px solid black;
-  padding: 8px;
-   font-weight: 900;
+  font-weight: bold;
 }
 
+/* Completed Task */
 .task.completed {
   text-decoration: line-through;
   opacity: 0.5;
   background-color: beige;
 }
 
-.deleteButton {
-  position: absolute;
-  right: 40vw;
-  border-radius: 20px;
-  width: 60px;
-  height: 30px;
-  background-color: red;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-.completeButton {
-  position: absolute;
-  right: 45vw;
-  border-radius: 20px;
+/* Buttons */
+.task button {
+  border-radius: 5px;
   width: 80px;
-  height: 30px;
-  background-color: skyblue;
-  color: #fff;
+  height: 35px;
+  font-size: 14px;
   border: none;
-  padding: 5px 10px;
   cursor: pointer;
+  font-weight: bold;
 }
-.userAlert.show {
-  display: block;
+
+.completeButton {
+  background-color: skyblue;
+  color: white;
 }
-/* h1{
-  margin: ;
-} */
+
+.deleteButton {
+  background-color: red;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .insert {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #taskInput {
+    width: 100%;
+    text-align: center;
+  }
+
+  .addBtn {
+    width: 100%;
+  }
+
+  .task {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .task button {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
